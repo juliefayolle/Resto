@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+    <h1>Boisson</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ boisson.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ boisson.name }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ boisson.image }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ boisson.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_boisson_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_boisson_edit', { 'id': boisson.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

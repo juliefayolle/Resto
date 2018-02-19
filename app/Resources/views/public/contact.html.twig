@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h3>Contact</h3>
+    <form class="formulaire_contact" name="contact" method="post">
+        <div class="form-group">
+            <label for="formNameInput">NOM Prénom</label>
+            <input type="text" class="form-control" id="formNameInput" placeholder="NOM Prénom">
+        </div>
+        <div class="form-group">
+            <label for="formControlInput">Email</label>
+            <input type="email" class="form-control" id="formControlInput" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="formGroupInput">Sujet</label>
+            <input type="text" class="form-control" id="formGroupInput" placeholder="Sujet">
+        </div>
+        <div class="form-group">
+            <label for="formControlTextarea">Message</label>
+            <textarea class="form-control" id="formControlTextarea" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
+{% endblock %}

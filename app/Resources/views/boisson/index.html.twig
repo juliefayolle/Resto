@@ -1,0 +1,36 @@
+{% extends 'admin.html.twig' %}
+{% block body %}
+    <h2>Liste des boissons</h2>
+    <button type="button" class="create btn btn-black"><a href="{{ path('admin_boisson_new') }}">Ajouter une nouvelle boisson</a></button>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boisson in boissons %}
+            <tr>
+                <td>{{ boisson.name }}</td>
+                <td>{{ boisson.image }}</td>
+                <td>{{ boisson.price }} €</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_boisson_show', { 'id': boisson.id }) }}"><i class="fas fa-eye"></i>  show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_boisson_edit', { 'id': boisson.id }) }}"><i class="far fa-edit"></i>  edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

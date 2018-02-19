@@ -1,0 +1,39 @@
+{% extends 'admin.html.twig' %}
+
+{% block body %}
+    <h2>Liste des plats</h2>
+    <button type="button" class="create btn btn-black"><a href="{{ path('admin_plat_new') }}">Ajouter un nouveau plat</a></button>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Content</th>
+                <th scope="col">Image</th>
+                <th scope="col">Price</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for plat in plats %}
+            <tr>
+                <td>{{ plat.name }}</td>
+                <td>{{ plat.content|raw }}</td>
+                <td>{{ plat.image }}</td>
+                <td>{{ plat.price }} €</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('admin_plat_show', { 'id': plat.id }) }}"><i class="fas fa-eye"></i>  show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_plat_edit', { 'id': plat.id }) }}"><i class="far fa-edit"></i>  edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

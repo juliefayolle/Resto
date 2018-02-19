@@ -1,0 +1,23 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}A la carte{% endblock %}
+
+{% block body %}
+    <h2 class="titre_plats">Nos plats à la carte :</h2>
+    <div class="container">
+        <div class="row">
+        {% for plat in plats %}
+            <div class="col-md-3 ">
+                <div class="card text-white bg-secondary">
+                <img class="card-img-top" src="http://fakeimg.pl/350x200/?text={{ plat.name }}" alt="{{ plat.name }}">
+                    <div class="card-body">
+                        <h4>{{ plat.name }}</h4>
+                        <p class="card-text">{{ plat.content|raw }}</p>
+                        <p class="bottom"><b>{{ plat.price }} €</b></p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+{% endblock %}
